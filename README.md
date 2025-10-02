@@ -1,6 +1,6 @@
 # TiltNexus' OpenGL project base
 
-A fairly simple (for better or for worse) base for my OpenGL projects. It is made with SDL3, OpenGL, OpenAL, stb-image, and stb-vorbis. It can load these file types: OBJs, OGGs, TTFs, most images, and GLSL shaders.
+A fairly simple (for better or for worse) base for my OpenGL projects written in C. It is made with SDL3, OpenGL, OpenAL, stb-image, and stb-vorbis. It can load these file types: OBJs, OGGs, TTFs, most images, and GLSL shaders. It also features a simplified version of GLM with vec3f and mat4f typedefs for convenience.
 
 Most parts of this are not expandable in any way because I don't look into the future at all.
 
