@@ -105,6 +105,9 @@ void textureLoad(textureinfo *texture, const char* texPath, unsigned int format)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     stbi_set_flip_vertically_on_load(true);
     unsigned char *imageData = stbi_load(texPath, &width, &height, &channels, 0);
+    if (!format) {
+        format = channels == 3 ? GL_RGB : GL_RGBA;
+    }
     if (imageData) {
         glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, imageData);
     } else {
