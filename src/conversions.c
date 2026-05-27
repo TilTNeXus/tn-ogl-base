@@ -101,3 +101,25 @@ char *base64Encode(int srclen, unsigned char *src, int *destlen) {
     *destlen = destLength;
     return dest;
 }
+
+char *base64Decode(int srclen, unsigned char *src, int *destlen) {
+    char table[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    int destLength = (srclen * 3 / 4) + 1;
+    char *dest = malloc(destLength * sizeof(char));
+    for (int i = 0; i < srclen; i += 4) {
+        int bits = (strchr(table, src[i]) - table) << 18;
+        bits |= (strchr(table, src[i+1]) - table) << 12;
+        if (src[i+2] != '=') {
+            bits |= (strchr(table, src[i+2]) - table) << 6;
+        }
+        if (src[i+3] != '=') {
+            bits |= (strchr(table, src[i+3]) - table);
+        }
+        dest[i*3/4] = (char)(bits >> 16);
+        dest[i*3/4 + 1] = (char)(bits >> 8) & 0xff;
+        dest[i*3/4 + 2] = (char)bits & 0xff;
+    }
+    dest[destLength] = '\0';
+    *destlen = destLength;
+    return dest;
+}
