@@ -1,4 +1,4 @@
-OBJS = src/main.c src/mat4f.c src/vec3f.c src/camera.c src/loading.c src/conversions.c src/text.c src/mouse.c include/stb_vorbis.c
+OBJS = src/main.c src/mat4f.c src/vec3f.c src/camera.c src/loading.c src/conversions.c src/text.c src/mouse.c include/stb_vorbis.c include/tiny-json/tiny-json.c
 NAME = base
 
 COMPILER_FLAGS = -Wall

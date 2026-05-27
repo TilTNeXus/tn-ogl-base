@@ -1,3 +1,3 @@
-[submodule "src/tiny-json"]
-	path = src/tiny-json
+[submodule "include/tiny-json"]
+	path = include/tiny-json
 	url = https://github.com/rafagafe/tiny-json
