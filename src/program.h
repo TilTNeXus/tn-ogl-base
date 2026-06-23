@@ -23,6 +23,8 @@ extern int ww, wh;
 
 #include <SDL3/SDL.h>
 
+#include "tiny-json/tiny-json.h"
+
 #include "mat4f.h"
 #include "camera.h"
 #include "text.h"
@@ -86,6 +88,8 @@ typedef struct modelinfo {
     unsigned int size;
     unsigned int vao;
     unsigned int vbo;
+    unsigned int ebo;
+    unsigned int modelFormat;
 } modelinfo;
 extern modelinfo models[5];
 

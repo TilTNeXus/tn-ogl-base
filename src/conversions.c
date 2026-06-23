@@ -1,5 +1,12 @@
 #include "conversions.h"
 
+unsigned int moduint(int x, int y) {
+    return ((x) % y + y) % y;
+}
+float moduf(float x, float y) {
+    return fmod(fmod(x, y) + y, y);
+}
+
 void hexToRGBf(float *rgbf, unsigned int hex) {
     rgbf[0] = (float)(hex >> 16) / 255;
     rgbf[1] = (float)((hex >> 8) & 0xff) / 255;
@@ -102,10 +109,10 @@ char *base64Encode(int srclen, unsigned char *src, int *destlen) {
     return dest;
 }
 
-char *base64Decode(int srclen, unsigned char *src, int *destlen) {
+unsigned char *base64Decode(int srclen, unsigned char *src, int *destlen) {
     char table[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    int destLength = (srclen * 3 / 4) + 1;
-    char *dest = malloc(destLength * sizeof(char));
+    int destLength = (srclen * 3 / 4);
+    unsigned char *dest = malloc(destLength * sizeof(char) + 1);
     for (int i = 0; i < srclen; i += 4) {
         int bits = (strchr(table, src[i]) - table) << 18;
         bits |= (strchr(table, src[i+1]) - table) << 12;

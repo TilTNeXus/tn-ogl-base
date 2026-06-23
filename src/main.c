@@ -170,7 +170,6 @@ void initDrawing(void) {
     createFramebuffer(&textFB, ww, wh, 0);
     glUniform1i(glGetUniformLocation(textFB.shader, "tex"), 0);
 
-
     modelLoad(&models[0], "assets/models/fish.obj");
     loadIntoVAO(&models[0]);
     shaderProgram[0] = shaderLoad("assets/shaders/shape.vs", "assets/shaders/solidlit.fs");
